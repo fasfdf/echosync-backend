@@ -1,0 +1,23 @@
+databases:
+  - name: echosync-db
+    plan: free
+    databaseName: echosync
+    user: echosync
+
+services:
+  - type: web
+    name: echosync-backend
+    runtime: node
+    plan: free
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: echosync-db
+          property: connectionString
+      - key: GROQ_API_KEY
+        sync: false # set manually in the Render dashboard — never committed
+      - key: CORS_ORIGIN
+        value: http://localhost:5173 # TODO: replace with the Lovable app domain
