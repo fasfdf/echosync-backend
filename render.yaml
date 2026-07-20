@@ -20,4 +20,4 @@ services:
       - key: GROQ_API_KEY
         sync: false # set manually in the Render dashboard — never committed
       - key: CORS_ORIGIN
-        value: http://localhost:5173 # TODO: replace with the Lovable app domain
+        value: https://echo-sync-words.lovable.app # TODO: replace with the Lovable app domain
