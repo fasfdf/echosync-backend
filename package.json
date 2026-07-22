@@ -4,7 +4,7 @@
   "description": "EchoSync AAC demo backend (temporary validation layer)",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch --env-file=.env src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js"
   },
@@ -28,5 +28,10 @@
     "embedded-postgres": "^18.4.0-beta.17",
     "tsx": "^4.23.1",
     "typescript": "^7.0.2"
+  },
+  "allowScripts": {
+    "@embedded-postgres/darwin-arm64@18.4.0-beta.17": true,
+    "esbuild@0.28.1": true,
+    "fsevents@2.3.3": true
   }
 }
